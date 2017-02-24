@@ -199,3 +199,17 @@ And the output from the program (N.b. the namespace of the project is `FactoryMe
 	Got a FactoryMethod.Chicken
 	Got 400.0g of FactoryMethod.GrilledChicken ()
 	Got 400.0g of FactoryMethod.GrilledChicken (Salt and Pepper)
+
+## Criticism
+
+**Wins:**
+
+ * We avoided repeating the processing logic in every factory - we just implement once in the abstract factory (`AnimalSource`)
+ * At scale, we can cater for the creation of lots of different types of object and control the proliferation of details behind how the common features are implemented
+ * We can provide a tidy API to developers for creating objects "the right way" so that they are set up with all their dependencies
+ 
+**Fails:**
+
+ * You seem to need a lot of classes each time you add a parallel member of the class family (i.e. a new Product requires a new Factory, potentially a new ProdcutProduct [that's the meat in our example])
+ * Object Jungle. In enterprise, we end up with the WidgetFactoryFactoryFactory
+ * On a similar note, this (and patterns in general) mean that we start to focus on classes for achieving internal interaction instead of classes which model the problem domain. As programmers, we are interested in the CustomerAccount, not the CustomerAccountSpecificUpsellPricingTableFactory.
