@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FactoryMethod
+﻿namespace FactoryMethod
 {
     public class Chicken : IAnimal
     {
-        private int Weight { get; set; }
+        public decimal Weight { get; set; }
 
         public ICookedMeat Cook()
         {
@@ -18,7 +12,7 @@ namespace FactoryMethod
         private GrilledChicken Grill()
         {
             var theMeat = new GrilledChicken();
-            theMeat.Weight = Weight;
+            theMeat.Weight = Weight * 0.8M; //'M' is just used here to define a Decimal literal
             return theMeat;
         }
     }

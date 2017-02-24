@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FactoryMethod
+﻿namespace FactoryMethod
 {
     public interface ICookedMeat
     {
-        int Weight { get; set; }
+        decimal Weight { get; set; }
+        string Flavouring { get; set; }
 
         void Eat();
-        
     }
 }

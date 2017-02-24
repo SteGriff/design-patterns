@@ -10,7 +10,7 @@ namespace FactoryMethod
     {
         public ICookedMeat Cook()
         {
-            var meat = new UnknownMeat();
+            var meat = new MysteryMeat();
             meat.Weight = 10;
             return meat;
         }
