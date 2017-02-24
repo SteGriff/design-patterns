@@ -31,7 +31,7 @@ So an interface addresses this problem by creating a contract for Animals to ful
 
 	public interface IAnimal
 	{
-		public ICookedMeat Cook();
+		ICookedMeat Cook();
 	}
 
 ...which is then implemented by each Animal. Here is a `Chicken` class which implements Cook, but internally calls its Grill method. 
@@ -75,25 +75,23 @@ You might use the Factory Method pattern when:
 
 ### The participants 
 
-"Product" (IAnimal)
+#### "Product" (IAnimal)
 
  - Defines the interface of objects that the factory method creates
-
+ - You could instead use an Abstract Class `Animal` to define the default created object with default behaviour
  
-"ConcreteProduct" (Chicken)
+#### "ConcreteProduct" (Chicken)
  
  - Implements the Product interface
-	
 
-"Creator" (AnimalSource)
+#### "Creator" (AnimalSource)
 
- - Declares the factory method, which returns a Product (IAnimal). May also define the default implementation of the gfactory method that returns a default ConcreteProduct object (if we were working with something more abstract than animals, like types of HTML element, this would make more sense.)
-	
+ - Declares the factory method, which returns a Product (IAnimal). May also define the default implementation of the factory method that returns a default ConcreteProduct object (if we were working with something more abstract than animals, like types of HTML element, this would make more sense.)
  - Might call the factory method, to create a Product (IAnimal) object
 	
-"ConcreteCreator" (ChickenSource)
+#### "ConcreteCreator" (ChickenSource)
 
- - Overrides the default factory method (in LivestockOrigin) to return a specifically typed instance of some IAnimal, such as a Chicken.
+ - Overrides the default factory method (in AnimalSource) to return a specifically typed instance of some IAnimal, such as a Chicken.
 	
 	
 
