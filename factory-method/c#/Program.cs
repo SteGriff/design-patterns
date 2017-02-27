@@ -19,10 +19,17 @@ namespace FactoryMethod
             //Let's cook it ourselves and get default grilled chicken with no flavour:
             var myMeat = animal.Cook();
             DescribeFood(myMeat);
+            myMeat.Eat();
 
             //Now let's ask the food factory for some ready-seasoned chicken:
             var food = animalSource.GetFood();
             DescribeFood(food);
+            food.Eat();
+
+            var cowSource = new CowSource();
+            var beef = cowSource.GetFood();
+            DescribeFood(beef);
+            beef.Eat();
 
             Console.ReadLine();
         }

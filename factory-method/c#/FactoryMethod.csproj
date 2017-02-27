@@ -47,6 +47,8 @@
     <Compile Include="AnimalSource.cs" />
     <Compile Include="Animals\Chicken.cs" />
     <Compile Include="ChickenSource.cs" />
+    <Compile Include="Cow.cs" />
+    <Compile Include="CowSource.cs" />
     <Compile Include="Meats\GrilledChicken.cs" />
     <Compile Include="Interfaces\IAnimal.cs" />
     <Compile Include="Interfaces\ICookedMeat.cs" />
@@ -54,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Animals\UnknownAnimal.cs" />
     <Compile Include="Meats\MysteryMeat.cs" />
+    <Compile Include="StewedBeef.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
