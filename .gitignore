@@ -194,3 +194,7 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+## Addtional Javascript and Typescript ignores
+node_modules/
+dist/
