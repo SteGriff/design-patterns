@@ -11,7 +11,8 @@
     "copy": "npm run copy:static",
     "serve": "http-server dist",
     "prestart": "npm run clean && npm run build & npm run copy",
-    "start": "opener http://localhost:8080 & npm run serve"
+    "start": "node dist/bundle.js",
+    "start:web": "npm run prestart && opener http://localhost:8080 & npm run serve"
   },
   "repository": {
     "type": "git",
