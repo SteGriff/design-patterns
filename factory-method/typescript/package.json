@@ -5,14 +5,16 @@
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rimraf dist",
-    "build": "mkdirp dist && webpack",
+    "clean": "rimraf dist && mkdirp dist",
+    "compile": "webpack",
     "copy:static": "copyup src/**/*.html src/**/*.css dist",
     "copy": "npm run copy:static",
+    "rename:js": "hashmark -c ./dist/ -r -l 6 *.js {name}-{hash}{ext} | replaceinfiles -s dist/*.html -d {dir}/{base}",
+    "rename": "npm run rename:js",
+    "build": "npm run clean && npm run compile & npm run copy",
     "serve": "http-server dist",
-    "prestart": "npm run clean && npm run build & npm run copy",
-    "start": "node dist/bundle.js",
-    "start:web": "npm run prestart && opener http://localhost:8080 & npm run serve"
+    "start": "npm run build && node dist/bundle.js",
+    "start:web": "npm run build && npm run rename && opener http://localhost:8080 & npm run serve"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,9 @@
     "rimraf": "^2.6.1",
     "ts-loader": "^2.0.1",
     "typescript": "^2.2.1",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "hashmark": "^4.1.0",
+    "injectassets": "^1.0.5",
+    "replaceinfiles": "^1.1.4"
   }
 }
