@@ -1,10 +1,10 @@
-import {ICookedMeat} from "./Interfaces/ICookedMeat";
-import {IAnimal} from "./Interfaces/IAnimal";
-import {AnimalSource} from "./Factories/AnimalSource";
-import {ChickenSource} from "./Factories/ChickenSource";
-import {TypeOf} from "./Utilities/TypeOf"
+import { ICookedMeat } from "Interfaces/ICookedMeat";
+import { IAnimal } from "Interfaces/IAnimal";
+import { ChickenSource } from "Factories/ChickenSource";
+import { AnimalSource } from "Factories/AnimalSource";
+import { TypeOf } from "Utilities/TypeOf";
 
-let DescribeFood = function(food: ICookedMeat): void{
+let DescribeFood = function(food: ICookedMeat): void {
   let described = `Got ${food.Weight}g of ${TypeOf(food)} (${food.Flavouring})`;
   console.log(described);
 }

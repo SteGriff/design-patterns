@@ -1,4 +1,5 @@
 //See https://www.npmjs.com/package/ts-loader
+path = require("path");
 module.exports = {
     entry: './src/app.ts',
     output: {
@@ -6,7 +7,11 @@ module.exports = {
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension. 
-        extensions: ['.ts', '.tsx', '.js'] // note if using webpack 1 you'd also need a '' in the array as well 
+        extensions: ['.ts', '.tsx', '.js'], // note if using webpack 1 you'd also need a '' in the array as well 
+        modules: [
+            path.resolve('./src'),
+            'node_modules'
+        ],
     },
     module: {
         loaders: [ // loaders will work with webpack 1 or 2; but will be renamed "rules" in future 

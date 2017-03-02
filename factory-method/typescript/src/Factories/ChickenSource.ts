@@ -1,6 +1,6 @@
-import {IAnimal} from "../Interfaces/IAnimal";
-import {AnimalSource} from "./AnimalSource"
-import {Chicken} from "../Animals/Chicken"
+import {IAnimal} from "Interfaces/IAnimal";
+import {AnimalSource} from "Factories/AnimalSource"
+import {Chicken} from "Animals/Chicken"
 export class ChickenSource extends AnimalSource{
   public FactoryMethod() : IAnimal{
     let chicken : Chicken = new Chicken();

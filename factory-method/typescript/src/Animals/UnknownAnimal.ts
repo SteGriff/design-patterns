@@ -1,6 +1,6 @@
-import {IAnimal} from "../Interfaces/IAnimal";
-import {ICookedMeat} from "../Interfaces/ICookedMeat";
-import {MysteryMeat} from "../Meats/MysteryMeat";
+import {IAnimal} from "Interfaces/IAnimal";
+import {ICookedMeat} from "Interfaces/ICookedMeat";
+import {MysteryMeat} from "Meats/MysteryMeat";
 
 export class UnknownAnimal implements IAnimal{
   public Cook(): ICookedMeat{

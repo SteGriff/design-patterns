@@ -1,4 +1,4 @@
-import {ICookedMeat} from "../Interfaces/ICookedMeat";
+import {ICookedMeat} from "Interfaces/ICookedMeat";
 export class MysteryMeat implements ICookedMeat{
   public Weight: number;
   public Flavouring: string;
