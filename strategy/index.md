@@ -61,27 +61,60 @@ There must be a better way...
 
 To apply the strategy pattern, we are going to move the complex, changeable behaviours into their own classes (which don't change).
 
-IPrintWorkTicketBehaviour
-| - PrintWorkTicket()
-|
-|__PrintCleanBathroomWorkTicketBehaviour
-|   - PrintWorkTicket()
-|
-|__PrintVacuumFloorWorkTicketBehaviour
-    - PrintWorkTicket()
+	IPrintWorkTicketBehaviour
+	| - PrintWorkTicket()
+	|
+	|__PrintCleanBathroomWorkTicketBehaviour
+	|   - PrintWorkTicket()
+	|
+	|__PrintVacuumFloorWorkTicketBehaviour
+		- PrintWorkTicket()
 
-IBookBehaviour
-| - Book()
-|
-|__BookGuestRoomBehaviour
-|    - Book()            
-|
-|__BookConferenceRoomBehaviour
-     - Book()
-
+		
+	IBookBehaviour
+	| - Book()
+	|
+	|__ BookOvernightBehaviour
+	|    - Book()            
+	|
+	|__ BookDaytimeBehaviour
+	|	 - Book()
+	|
+	|__ BookNotPossibleBehaviour
+		 - Book()
 
 The strategy pattern is a way of separating centers of complexity (the parts of the code that change a lot) from the parts which mostly stay the same. We do this by using **composition** over **inheritance**.
 
+So each Room now gets two properties:
 
+	Room
+		IPrintWorkTicketBehaviour PrintWorkTicketBehaviour
+		IBookBehaviour BookBehaviour
+		--
+		Clean()
+		
+	GuestRoom
+		PrintCleanBathroomWorkTicketBehaviour PrintWorkTicketBehaviour
+		BookOvernightBehaviour BookBehaviour
+		
+	ConferenceRoom
+		PrintVacuumFloorWorkTicketBehaviour PrintWorkTicketBehaviour
+		BookDaytimeBehaviour BookBehaviour
 
-## The problem
+	CorridorRoom
+		PrintVacuumFloorWorkTicketBehaviour PrintWorkTicketBehaviour
+		BookNotPossibleBehaviour BookBehaviour
+
+	...
+	
+The neat thing about our new behaviour classes is that they're not tightly coupled to a room type. For example, `PrintVacuumFloorWorkTicketBehaviour` works for conference rooms and corridors. `BookNotPossibleBehaviour` works for all of our unbookable rooms. So we only need one class per *behaviour*, rather than per *consumer class*.
+
+Furthermore, if in future we add things that are bookable which aren't Rooms, we can simply add a behaviour to them and if it's written correctly, it could *just work*:
+
+	SpaVisit
+		BookDaytimeBehaviour
+	
+	AdventureTrip
+		BookDaytimeBehaviour
+		
+
