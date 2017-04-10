@@ -1,5 +1,5 @@
-import {IAnimal} from "../Interfaces/IAnimal"
-import {ICookedMeat} from "../Interfaces/ICookedMeat"
+import { IAnimal } from "Interfaces/IAnimal"
+import { ICookedMeat } from "Interfaces/ICookedMeat";
 export abstract class AnimalSource{
   //The factory method - no implementation here, just an abstract stub
   public abstract FactoryMethod() : IAnimal;

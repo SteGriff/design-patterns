@@ -1,6 +1,6 @@
-import {IAnimal} from "../Interfaces/IAnimal";
-import {ICookedMeat} from "../Interfaces/ICookedMeat";
-import {GrilledChicken} from "../Meats/GrilledChicken";
+import {IAnimal} from "Interfaces/IAnimal";
+import {ICookedMeat} from "Interfaces/ICookedMeat";
+import {GrilledChicken} from "Meats/GrilledChicken";
 export class Chicken implements IAnimal{
   public Weight:number;
   public Cook() : ICookedMeat{

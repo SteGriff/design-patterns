@@ -1,4 +1,4 @@
-import {ICookedMeat} from "../Interfaces/ICookedMeat";
+import {ICookedMeat} from "Interfaces/ICookedMeat";
 export class GrilledChicken implements ICookedMeat{
   //The compiler doesn't add the property to the 
   // object if it doesn't get set to a value

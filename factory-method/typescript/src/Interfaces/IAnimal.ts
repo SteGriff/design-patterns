@@ -1,4 +1,4 @@
-import {ICookedMeat} from './ICookedMeat'
-export interface IAnimal{
+import { ICookedMeat } from "Interfaces/ICookedMeat";
+export interface IAnimal {
   Cook() : ICookedMeat;
 }

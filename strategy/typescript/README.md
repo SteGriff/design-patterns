@@ -1,5 +1,5 @@
 # Design Patterns
-## Factory Method - Typescript Example
+## Singleton - Typescript Example
 
 To run
  + Clone the typescript directory
